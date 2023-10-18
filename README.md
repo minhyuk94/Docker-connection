@@ -32,3 +32,15 @@ docker run --name goals-frontend --rm -p 3000:3000 -it goals-react
 
 ### NETWORK CHECK
 docker container inspect [docker-name]
+
+## 3. 볼륨에 데이터를 저장하여 도커 컨테이너가 삭제 되어도 데이터를 보존하기.
+### DB(데이터 보존)
+docker run --name mongodb -v data:/data/db --rm -d --network goals-net -p 27017:27017 mongo
+
+### DB(데이터 보존 및 인증설정)
+docker run --name mongodb -v data:/data/db --rm -d --network goals-net -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=yoo -e MONGO_INITDB_ROOT_PASSWORD=secret mongo
+
+#### Docker All Stop
+docker stop $(docker ps -a -q)
+
+
