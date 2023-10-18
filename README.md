@@ -21,7 +21,7 @@ docker network ls <br />
 docker network create goals-net
 
 ### DB
-docker run --name mongodb --rm -d --network goals-net mongo
+docker run --name mongodb --rm -d --network goals-net -p 27017:27017 mongo
 
 ### BACK-END
 docker run --name goals-backend --rm -d -p 80:80 --network goals-net goals-node
