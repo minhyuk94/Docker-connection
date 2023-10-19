@@ -44,3 +44,7 @@ docker run --name mongodb -v data:/data/db --rm -d --network goals-net -p 27017:
 docker stop $(docker ps -a -q)
 
 
+## Docker compose
+https://docs.docker.com/compose/compose-file/
+
+###

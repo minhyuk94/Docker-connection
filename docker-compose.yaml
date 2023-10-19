@@ -1,0 +1,17 @@
+version: "3.8"
+services: 
+  mongodb:
+    image: 'mongo'
+    volumes:
+      - data:/data/db
+    # environment: 환경변수가 노출되지 않도록 따로관리가능
+      # - MONGO_INITDB_ROOT_USERNAME: yoo
+      # - MONGO_INITDB_ROOT_PASSWORD: secret
+    env_file:
+      - ./env/mongo.
+    # 이렇게 자체 네트워크를 추가해도되지만 compose를 사용하면 default로 동일한 네트워크에 구성됨
+    # networks:
+      # - goals-net
+  # backend:
+
+  # frontend:
